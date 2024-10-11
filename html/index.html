@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Website</title>
+  </head>
+  <body>
+    <div style="color: blue">Hello World, I'm Dat!</div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const eventSource = new EventSource("/events");
+      console.log("Initalize");
+
+      eventSource.onmessage = function (e) {
+        if (e.data == "reload") {
+          console.log("reload");
+          location.reload();
+        }
+      };
+    });
+  </script>
+</html>
